@@ -1,0 +1,10 @@
+<ul>
+  <li>
+    <div><strong>Name: {{product.name}}</strong></div>
+    <div>Description: {{product.description}}</div>
+    <div>Price: {{product.price | currency}}</div>
+    <div>Category: {{product.category}}</div>
+    <div>isAvailable: {{product.isAvailable}}</div>
+    <button (click)="onBuy(product)">Buy</button>
+  </li>
+</ul>
