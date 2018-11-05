@@ -1,6 +1,6 @@
 import { Component, DoCheck } from '@angular/core';
 import { CartService } from '../../services/cart.service';
-import { ProductModel } from '../../models/product.model';
+import { ProductModel } from '../../../products/models/product.model';
 
 @Component({
   selector: 'app-cart',

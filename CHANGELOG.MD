@@ -9,3 +9,5 @@
 ### Bug Fixes
 
 ### Code refactoring
+
+* Change architecture of app
