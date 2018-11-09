@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { CartService} from '../../../cart/services/cart.service';
-import { ProductsService } from '../../services/products.service';
-import { ProductModel } from '../../models/product.model';
+import { CartService, ProductsService } from '../../../shared/services';
+import { ProductModel } from '../../../shared/models/product.model';
 
 @Component({
   selector: 'app-product-list',
@@ -9,6 +8,7 @@ import { ProductModel } from '../../models/product.model';
   styleUrls: ['./product-list.component.css']
 })
 export class ProductListComponent implements OnInit {
+
   productList: ProductModel[] = [];
 
   constructor(
@@ -20,8 +20,7 @@ export class ProductListComponent implements OnInit {
     this.productList = this.productsService.getProducts();
   }
 
-  onBuy(book: ProductModel): void {
-    console.log(`"${book.name}" is added to Cart`);
+  onBuy(book: ProductModel) {
     this.cartService.addToCart(book);
   }
 }

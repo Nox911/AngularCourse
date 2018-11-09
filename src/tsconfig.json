@@ -1,0 +1,23 @@
+{
+	"extends": "../tsconfig.json",
+	"compilerOptions": {
+		"baseUrl": "./",
+		"paths": {
+			"@products/*": [
+                "app/products/*"
+            ],
+            "@cart/*": [
+                "app/cart/*"
+            ],
+            "@shared/*": [
+                "app/shared/*"
+            ],
+            "@core/*": [
+                "app/core/*"
+            ],
+            "@orders/*": [
+                "app/orderss/*"
+            ]
+		}
+	}
+}

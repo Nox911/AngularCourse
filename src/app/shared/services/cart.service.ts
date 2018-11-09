@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { ProductModel } from '../../products/models/product.model';
+import { ProductModel } from '../../shared/models/product.model';
 
 @Injectable()
 export class CartService {
@@ -7,6 +7,7 @@ export class CartService {
 
   addToCart(book: ProductModel): void {
     this.cartList.push(book);
+    console.log(this.cartList);
   }
 
   getCartList(): ProductModel[] {

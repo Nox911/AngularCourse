@@ -1,7 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, Output, EventEmitter, Input } from '@angular/core';
 
-import { Category, ProductModel } from '../../models/product.model';
-import { CartService } from '../../../cart/services/cart.service';
+import { ProductModel } from '../../../shared/models/product.model';
 
 @Component({
   selector: 'app-product',
@@ -9,19 +8,10 @@ import { CartService } from '../../../cart/services/cart.service';
   styleUrls: ['./product.component.css']
 })
 export class ProductComponent {
-
-  constructor (private cartService: CartService) { }
-
-  product: ProductModel = {
-    name: 'Around the world',
-    description: 'Book about adventure',
-    price: 5,
-    category: Category.Adventure,
-    isAvailable: true
-  };
+  @Input() productList: ProductModel[];
+  @Output() bookedProduct = new EventEmitter();
 
   onBuy(book: ProductModel) {
-    console.log(`"${book.name}" is added to Cart`);
-    this.cartService.addToCart(book);
+    this.bookedProduct.emit(book);
   }
 }
