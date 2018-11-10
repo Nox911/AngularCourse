@@ -1,3 +1,5 @@
 <ul>
-  <app-product [productList]="productList" (bookedProduct)="onBuy($event)"></app-product>
+  <li *ngFor="let product of productList">
+      <app-product [product]="product" (bookedProduct)="onBuy($event)"></app-product>
+  </li>
 </ul>

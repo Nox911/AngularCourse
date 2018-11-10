@@ -8,7 +8,7 @@ import { ProductModel } from '../../../shared/models/product.model';
   styleUrls: ['./product.component.css']
 })
 export class ProductComponent {
-  @Input() productList: ProductModel[];
+  @Input() product: ProductModel[];
   @Output() bookedProduct = new EventEmitter();
 
   onBuy(book: ProductModel) {

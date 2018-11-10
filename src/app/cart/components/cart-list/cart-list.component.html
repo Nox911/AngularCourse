@@ -1,9 +1,13 @@
 <h3>Cart:</h3>
-<div *ngIf="productCartList.length; else emptyCart">
-  Cart list:
+<div *ngIf="productCartList.length; else emptyCart" class="cart-list-container">
   <ul>
-    <li *ngFor=" let item of productCartList">
-      <strong>"{{item.name}}"</strong>
+    <li class="cart-list-header"> 
+      <div class="cart-list-header-item">Name</div>
+      <div class="cart-list-header-item">Count</div>
+      <div class="cart-list-header-item">Price</div>
+    </li>
+    <li *ngFor="let item of productCartList">
+      <app-cart-item [cartItem]="item" (removeItem)="onRemoveItem($event)"></app-cart-item>
     </li>
   </ul>
   <p>Total books in cart: {{productCartList.length}}</p>

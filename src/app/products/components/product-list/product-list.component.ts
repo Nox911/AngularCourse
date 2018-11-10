@@ -8,7 +8,6 @@ import { ProductModel } from '../../../shared/models/product.model';
   styleUrls: ['./product-list.component.css']
 })
 export class ProductListComponent implements OnInit {
-
   productList: ProductModel[] = [];
 
   constructor(
@@ -20,7 +19,8 @@ export class ProductListComponent implements OnInit {
     this.productList = this.productsService.getProducts();
   }
 
-  onBuy(book: ProductModel) {
-    this.cartService.addToCart(book);
+  onBuy(product: ProductModel) {
+    this.productList = this.productsService.updateProductsCount(product.id);
+    this.cartService.addToCart(product);
   }
 }

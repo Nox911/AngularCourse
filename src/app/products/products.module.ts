@@ -2,8 +2,6 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { ProductComponent, ProductListComponent } from './components';
-import { ProductsService } from '../shared/services';
-import { ProductsComponent } from './products.component';
 
 @NgModule({
   imports: [
@@ -12,10 +10,9 @@ import { ProductsComponent } from './products.component';
   declarations: [
     ProductComponent,
     ProductListComponent,
-    ProductsComponent
   ],
   exports: [
-    ProductsComponent
+    ProductListComponent
   ]
 })
 export class ProductsModule { }

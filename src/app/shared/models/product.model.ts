@@ -6,9 +6,12 @@ export enum Category {
 
 export interface ProductModel {
     name: string;
-    description: string;
+    description?: string;
     price: number;
-    category: Category;
+    category?: Category;
     isAvailable: boolean;
+    availableCount: number;
+    cartCount?: number;
+    id: string;
 }
 

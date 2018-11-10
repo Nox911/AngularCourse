@@ -1,8 +1,7 @@
-<li *ngFor="let product of productList">
-  <div><strong>Name: {{product.name}}</strong></div>
-  <div>Description: {{product.description}}</div>
-  <div>Price: {{product.price | currency}}</div>
-  <div>Category: {{product.category}}</div>
-  <div>isAvailable: {{product.isAvailable}}</div>
-  <button (click)="onBuy(product)">Buy</button>
-</li>
+<div><strong>Name: {{product.name}}</strong></div>
+<div>Description: {{product.description}}</div>
+<div>Price: {{product.price | currency}}</div>
+<div>Category: {{product.category}}</div>
+<div>Count: {{product.availableCount}}</div>
+<div>isAvailable: {{product.isAvailable}}</div>
+<button [disabled]="!product.isAvailable" (click)="onBuy(product)">Add to Cart</button>

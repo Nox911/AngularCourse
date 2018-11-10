@@ -1,6 +1,6 @@
 import { Component, DoCheck } from '@angular/core';
-import { CartService } from '../../../shared/services';
-import { ProductModel } from 'src/app/shared/models/product.model';
+import { CartService, ProductsService } from '../../../shared/services';
+import { ProductModel } from '../../../shared/models/product.model';
 
 @Component({
   selector: 'app-cart-list',
@@ -9,15 +9,20 @@ import { ProductModel } from 'src/app/shared/models/product.model';
 })
 export class CartListComponent implements DoCheck {
 
-    productCartList: ProductModel[];
+  productCartList: ProductModel[];
 
-    constructor(private cartService: CartService) { }
+  constructor(private cartService: CartService, private productService: ProductsService) { }
 
-    ngDoCheck() {
-      this.productCartList = this.cartService.getCartList();
-    }
+  ngDoCheck() {
+    this.productCartList = this.cartService.getCartList();
+  }
 
-    clearCart(): void {
-      this.cartService.cleanCart();
-    }
+  clearCart(): void {
+    this.cartService.cleanCart();
+  }
+
+  onRemoveItem(productId: string) {
+    this.productService.restoreAvailableCount(productId);
+    this.cartService.updateCartList(productId);
+  }
 }

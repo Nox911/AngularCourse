@@ -1,0 +1,17 @@
+.cart-item-container {
+    justify-content: space-around;
+    display: flex;
+    width: 600px;
+}
+
+.cart-item {
+    width: 100px;
+}
+
+.cart-item:first-child {
+    width: 300px;
+}
+
+.cart-item + .active {
+    border: 1px solid orange;
+}
