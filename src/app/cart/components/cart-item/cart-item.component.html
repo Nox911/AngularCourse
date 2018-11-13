@@ -1,6 +1,6 @@
-<div class="cart-item-container" [ngClass]="{'active': cartItem.active}">
+<div appHighlight class="cart-item-container" [ngClass]="{'active': cartItem.active}">
   <div class="cart-item">{{cartItem.name}}</div>
   <div class="cart-item">{{cartItem.cartCount}}</div>
-  <div class="cart-item">{{cartItem.price | currency}}</div>
+  <div class="cart-item">{{cartItem.price*cartItem.cartCount | currency}}</div>
   <button class="cart-item-remove" (click)="removeCartItem(cartItem.id)">Remove</button>
 </div>

@@ -5,24 +5,27 @@ import { ProductModel } from '../../../shared/models/product.model';
 @Component({
   selector: 'app-cart-list',
   templateUrl: './cart-list.component.html',
-  styleUrls: ['./cart-list.component.css']
+  styleUrls: ['./cart-list.component.css'],
 })
 export class CartListComponent implements DoCheck {
 
   productCartList: ProductModel[];
+  totalCartCount;
 
   constructor(private cartService: CartService, private productService: ProductsService) { }
 
   ngDoCheck() {
     this.productCartList = this.cartService.getCartList();
-  }
-
-  clearCart(): void {
-    this.cartService.cleanCart();
+    this.totalCartCount = this.cartService.totalCount;
   }
 
   onRemoveItem(productId: string) {
-    this.productService.restoreAvailableCount(productId);
     this.cartService.updateCartList(productId);
+    this.productService.restoreProductCount(productId);
+  }
+
+  clearCart() {
+    this.cartService.clearCart();
+    this.productService.restoreAllProductCount();
   }
 }

@@ -4,28 +4,39 @@ import { ProductModel } from '../../shared/models/product.model';
 @Injectable()
 export class CartService {
   cartList: ProductModel[] = [];
+  totalCount = 0;
 
-  addToCart(book: ProductModel): void {
-    if (book.cartCount) {
-      this.cartList.forEach(item => item.id === book.id ? item.cartCount++ : item);
+  addToCart(product: ProductModel): void {
+    if (product.cartCount) {
+      this.cartList.forEach(item => item.id === product.id ? item.cartCount++ : item);
     } else {
-      book.cartCount++;
-      this.cartList.push(book);
+      this.cartList.push(product);
+      product.cartCount++;
     }
+    this.totalCount++;
   }
 
   getCartList(): ProductModel[] {
     return this.cartList;
   }
 
-  cleanCart(): void {
-    this.cartList = [];
+  getTotalCount() {
+    return this.totalCount;
   }
 
   updateCartList(productId: string): void {
     this.cartList = this.cartList.filter(item => {
-
-      return item['id'] !== productId;
+      if (item['id'] !== productId) {
+        return true;
+      } else {
+        this.totalCount = this.totalCount - item['cartCount'];
+        return false;
+      }
     });
+  }
+
+  clearCart() {
+    this.cartList = [];
+    this.totalCount = 0;
   }
 }

@@ -1,4 +1,4 @@
-<h3>Cart:</h3>
+<h3><ng-content></ng-content></h3>
 <div *ngIf="productCartList.length; else emptyCart" class="cart-list-container">
   <ul>
     <li class="cart-list-header"> 
@@ -10,7 +10,7 @@
       <app-cart-item [cartItem]="item" (removeItem)="onRemoveItem($event)"></app-cart-item>
     </li>
   </ul>
-  <p>Total books in cart: {{productCartList.length}}</p>
+  <p>Total books in cart: {{totalCartCount}}</p>
 </div>
 <ng-template #emptyCart>
   <div>

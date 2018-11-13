@@ -28,8 +28,8 @@ export class ProductsService {
       name: 'Around the world. Part 2',
       price: 7,
       category: Category.Adventure,
-      isAvailable: false,
-      availableCount: 0,
+      isAvailable: true,
+      availableCount: 5,
       cartCount: 0,
       id: '3'
     }
@@ -50,7 +50,25 @@ export class ProductsService {
     });
   }
 
-  restoreAvailableCount(productId: string) {
-    return this.productList.filter(item => item['id'] === productId)[0].availableCount;
+  restoreProductCount(productId: string) {
+    return this.productList.map(item => {
+      if (item.id === productId) {
+        item.availableCount = item.availableCount + item.cartCount;
+        item.cartCount = 0;
+      }
+      item.isAvailable = !!item.availableCount;
+
+      return item;
+    });
+  }
+
+  restoreAllProductCount() {
+    return this.productList.map(item => {
+      item.availableCount = item.availableCount + item.cartCount;
+      item.cartCount = 0;
+      item.isAvailable = !!item.availableCount;
+
+      return item;
+    });
   }
 }

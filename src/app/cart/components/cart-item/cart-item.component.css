@@ -15,3 +15,8 @@
 .cart-item + .active {
     border: 1px solid orange;
 }
+
+.active {
+    background-color: orange;
+    border-radius: 10px;
+}
