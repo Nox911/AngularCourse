@@ -1,11 +1,14 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { CartService, ProductsService } from './services';
-import { HighlightDirective } from './directives/highlight.directive';
+import { ContactUsComponent } from './components/contact-us/contact-us.component';
+import { HighlightDirective, IncreaseTextDirective } from './../shared/directives';
 
 @NgModule({
   declarations: [
-    HighlightDirective
+    HighlightDirective,
+    IncreaseTextDirective,
+    ContactUsComponent
   ],
   imports: [
     CommonModule
@@ -14,6 +17,10 @@ import { HighlightDirective } from './directives/highlight.directive';
     CartService,
     ProductsService
   ],
-  exports: [HighlightDirective]
+  exports: [
+    HighlightDirective,
+    ContactUsComponent,
+    IncreaseTextDirective
+  ]
 })
 export class SharedModule { }

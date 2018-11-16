@@ -1,4 +1,4 @@
-<div [ngClass]="{ 'notAvailable': !product.isAvailable }"><strong>Name: {{product.name}}</strong></div>
+<div appIncreaseText="32px" [ngClass]="{ 'notAvailable': !product.isAvailable }"><strong>Name: {{product.name}}</strong></div>
 <div>Description: {{product.description}}</div>
 <div>Price: {{product.price | currency}}</div>
 <div>Category: {{product.category}}</div>

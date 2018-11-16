@@ -1,4 +1,6 @@
-import { Component, ViewChild, OnInit, ElementRef } from '@angular/core';
+import { Component, ViewChild, OnInit, ElementRef, Inject } from '@angular/core';
+import { ConstantsService, StringGenerator10 } from './core/core.module';
+import { ConfigOptionsService } from './core/services';
 
 @Component({
   selector: 'app-root',
@@ -6,7 +8,6 @@ import { Component, ViewChild, OnInit, ElementRef } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
-
   @ViewChild('appTitle') title: ElementRef;
 
   ngOnInit() {

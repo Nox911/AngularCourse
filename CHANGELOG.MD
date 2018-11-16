@@ -30,3 +30,13 @@
 * Add coreModule
 * Add ordersModule
 * Move cart and product services to shared module
+
+# Task3
+
+### Features
+* Add name, version of app and user data to footer of the page
+* Add possibility to increase text size of product title by clicking on it
+
+# Information
+* Refactoring of Cart possibilities and improvement of visual appearance will coming in task 4.
+
