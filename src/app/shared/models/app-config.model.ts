@@ -1,5 +1,5 @@
 export interface AppConfigModel {
-    id: number;
+    id: string;
     login: string;
     email: string;
 }

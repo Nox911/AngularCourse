@@ -1,6 +1,4 @@
 import { Component, ViewChild, OnInit, ElementRef, Inject } from '@angular/core';
-import { ConstantsService, StringGenerator10 } from './core/core.module';
-import { ConfigOptionsService } from './core/services';
 
 @Component({
   selector: 'app-root',

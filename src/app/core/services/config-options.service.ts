@@ -6,7 +6,7 @@ import { AppConfigModel } from '../../shared/models/index';
 })
 export class ConfigOptionsService {
   private appConfig = {
-    id: 1,
+    id: 'baseId',
     login: 'Nox',
     email: 'nox.911@gmail.com'
   };
