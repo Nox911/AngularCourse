@@ -40,3 +40,19 @@
 # Information
 * Refactoring of Cart possibilities and improvement of visual appearance will coming in task 4.
 
+# Task4
+
+### Features
+* Add last modified date
+* Add possibility to sort cart by name, count or price
+
+### Refactoring
+* Method getProducts return Promise
+* Add OrderBy pipe in cart list
+* Add data pipe in products list
+
+* Add possibility to sort cart by name, count or price
+
+# Information
+* Update: Refactoring of Cart possibilities and improvement of visual appearance will coming with routing.
+

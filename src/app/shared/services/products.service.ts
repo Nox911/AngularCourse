@@ -12,7 +12,8 @@ export class ProductsService {
       isAvailable: true,
       availableCount: 3,
       cartCount: 0,
-      id: '1'
+      id: '1',
+      lastModified: Date.now() - 23234234324
     },
     {
       name: 'New wave',
@@ -22,7 +23,8 @@ export class ProductsService {
       isAvailable: true,
       availableCount: 2,
       cartCount: 0,
-      id: '2'
+      id: '2',
+      lastModified: Date.now() - 32131213133
     },
     {
       name: 'Around the world. Part 2',
@@ -31,23 +33,26 @@ export class ProductsService {
       isAvailable: true,
       availableCount: 5,
       cartCount: 0,
-      id: '3'
+      id: '3',
+      lastModified: Date.now() - 2131323423423
     }
   ];
 
-  getProducts(): ProductModel[] {
-    return this.productList;
+  getProducts(): Promise<ProductModel[]> {
+    return Promise.resolve(this.productList);
   }
 
-  updateProductsCount(productId: string) {
-    return this.productList.map(item => {
-      if (item.id === productId) {
-        item.availableCount--;
-      }
-      item.isAvailable = !!item.availableCount;
+  updateProductsCount(productId: string): Promise<ProductModel[]> {
+    return Promise.resolve(
+      this.productList.map(item => {
+        if (item.id === productId) {
+          item.availableCount--;
+        }
+        item.isAvailable = !!item.availableCount;
 
-      return item;
-    });
+        return item;
+      })
+    );
   }
 
   restoreProductCount(productId: string) {

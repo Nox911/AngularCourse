@@ -13,5 +13,6 @@ export interface ProductModel {
     availableCount: number;
     cartCount?: number;
     id: string;
+    lastModified: number;
 }
 

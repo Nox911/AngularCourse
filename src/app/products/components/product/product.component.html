@@ -4,4 +4,5 @@
 <div>Category: {{product.category}}</div>
 <div [ngClass]="{ 'notAvailable': !product.isAvailable }">Count: {{product.availableCount}}</div>
 <div>isAvailable: {{product.isAvailable}}</div>
+<div>Last modified: {{product.lastModified | date: 'fullDate'}}</div>
 <button [disabled]="!product.isAvailable" (click)="onBuy(product)">Add to Cart</button>

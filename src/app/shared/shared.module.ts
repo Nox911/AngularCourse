@@ -3,12 +3,14 @@ import { CommonModule } from '@angular/common';
 import { CartService, ProductsService } from './services';
 import { ContactUsComponent } from './components/contact-us/contact-us.component';
 import { HighlightDirective, IncreaseTextDirective } from './../shared/directives';
+import { OrderByPipe } from './pipes/order-by.pipe';
 
 @NgModule({
   declarations: [
     HighlightDirective,
     IncreaseTextDirective,
-    ContactUsComponent
+    ContactUsComponent,
+    OrderByPipe
   ],
   imports: [
     CommonModule
@@ -20,7 +22,8 @@ import { HighlightDirective, IncreaseTextDirective } from './../shared/directive
   exports: [
     HighlightDirective,
     ContactUsComponent,
-    IncreaseTextDirective
+    IncreaseTextDirective,
+    OrderByPipe
   ]
 })
 export class SharedModule { }
