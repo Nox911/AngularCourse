@@ -8,7 +8,7 @@ import { ProductModel } from '../../../shared/models/product.model';
   styleUrls: ['./product-list.component.css']
 })
 export class ProductListComponent implements OnInit {
-  productList: ProductModel[] = [];
+  productList: Promise<ProductModel[]>;
 
   constructor(
     private productsService: ProductsService,

@@ -1,4 +1,4 @@
-import { Component, DoCheck } from '@angular/core';
+import { Component, DoCheck, ViewChild } from '@angular/core';
 import { CartService, ProductsService } from '../../../shared/services';
 import { ProductModel } from '../../../shared/models/product.model';
 
@@ -8,9 +8,9 @@ import { ProductModel } from '../../../shared/models/product.model';
   styleUrls: ['./cart-list.component.css'],
 })
 export class CartListComponent implements DoCheck {
-
   productCartList: ProductModel[];
   totalCartCount;
+  orderType = 'name';
 
   constructor(private cartService: CartService, private productService: ProductsService) { }
 
@@ -27,5 +27,9 @@ export class CartListComponent implements DoCheck {
   clearCart() {
     this.cartService.clearCart();
     this.productService.restoreAllProductCount();
+  }
+
+  changeOrderType(newOrderType: string): void {
+    this.orderType = newOrderType;
   }
 }

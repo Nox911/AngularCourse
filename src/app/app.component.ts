@@ -1,4 +1,4 @@
-import { Component, ViewChild, OnInit, ElementRef } from '@angular/core';
+import { Component, ViewChild, OnInit, ElementRef, Inject } from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -6,7 +6,6 @@ import { Component, ViewChild, OnInit, ElementRef } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
-
   @ViewChild('appTitle') title: ElementRef;
 
   ngOnInit() {

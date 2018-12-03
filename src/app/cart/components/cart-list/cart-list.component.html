@@ -1,12 +1,31 @@
 <h3><ng-content></ng-content></h3>
 <div *ngIf="productCartList.length; else emptyCart" class="cart-list-container">
+  Sort by:
+  <select (change)="false" #selector>
+    
+    <option selected value="name">
+        Name
+    </option>
+    <option value="cartCount">
+        Count
+    </option>
+    <option value="price">
+        Price
+    </option>
+  </select>
   <ul>
     <li class="cart-list-header"> 
-      <div class="cart-list-header-item">Name</div>
-      <div class="cart-list-header-item">Count</div>
-      <div class="cart-list-header-item">Price</div>
+      <div class="cart-list-header-item">
+        Name
+      </div>
+      <div class="cart-list-header-item">
+        Count
+      </div>
+      <div class="cart-list-header-item">
+        Price
+      </div>
     </li>
-    <li *ngFor="let item of productCartList">
+    <li *ngFor="let item of productCartList | orderBy: { sortType: selector.value }">
       <app-cart-item [cartItem]="item" (removeItem)="onRemoveItem($event)"></app-cart-item>
     </li>
   </ul>

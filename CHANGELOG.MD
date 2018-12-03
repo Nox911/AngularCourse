@@ -30,3 +30,29 @@
 * Add coreModule
 * Add ordersModule
 * Move cart and product services to shared module
+
+# Task3
+
+### Features
+* Add name, version of app and user data to footer of the page
+* Add possibility to increase text size of product title by clicking on it
+
+# Information
+* Refactoring of Cart possibilities and improvement of visual appearance will coming in task 4.
+
+# Task4
+
+### Features
+* Add last modified date
+* Add possibility to sort cart by name, count or price
+
+### Refactoring
+* Method getProducts return Promise
+* Add OrderBy pipe in cart list
+* Add data pipe in products list
+
+* Add possibility to sort cart by name, count or price
+
+# Information
+* Update: Refactoring of Cart possibilities and improvement of visual appearance will coming with routing.
+

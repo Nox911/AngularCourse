@@ -17,7 +17,7 @@ export class CartService {
   }
 
   getCartList(): ProductModel[] {
-    return this.cartList;
+    return [].concat(this.cartList);
   }
 
   getTotalCount() {
