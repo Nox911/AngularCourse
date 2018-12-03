@@ -1,0 +1,24 @@
+.app-wrapper-container {
+    max-width: 1280px;
+    min-width: 768px;
+    margin: 0 auto;
+    display: grid;
+}
+
+.app-header-container {
+    display: flex;
+    height: 150px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.app-nav-bar {
+    display: flex;
+    justify-content: flex-start;
+}
+
+.app-nav-item {
+    width: 100px;
+    height:100px;
+}
