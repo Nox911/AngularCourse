@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { CartService, ProductsService } from './services';
-import { ContactUsComponent } from './components/contact-us/contact-us.component';
 import { HighlightDirective, IncreaseTextDirective } from './../shared/directives';
 import { OrderByPipe } from './pipes/order-by.pipe';
 
@@ -9,7 +8,6 @@ import { OrderByPipe } from './pipes/order-by.pipe';
   declarations: [
     HighlightDirective,
     IncreaseTextDirective,
-    ContactUsComponent,
     OrderByPipe
   ],
   imports: [
@@ -21,7 +19,6 @@ import { OrderByPipe } from './pipes/order-by.pipe';
   ],
   exports: [
     HighlightDirective,
-    ContactUsComponent,
     IncreaseTextDirective,
     OrderByPipe
   ]
