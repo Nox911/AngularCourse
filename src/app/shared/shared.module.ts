@@ -3,19 +3,13 @@ import { CommonModule } from '@angular/common';
 import { HighlightDirective, IncreaseTextDirective } from './../shared/directives';
 import { OrderByPipe } from './pipes/order-by.pipe';
 
+const declarationsArray = [ HighlightDirective, IncreaseTextDirective, OrderByPipe ];
+
 @NgModule({
-  declarations: [
-    HighlightDirective,
-    IncreaseTextDirective,
-    OrderByPipe
-  ],
+  declarations: [declarationsArray],
   imports: [
     CommonModule
   ],
-  exports: [
-    HighlightDirective,
-    IncreaseTextDirective,
-    OrderByPipe
-  ]
+  exports: [declarationsArray]
 })
 export class SharedModule { }
