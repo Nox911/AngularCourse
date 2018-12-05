@@ -33,7 +33,7 @@ export class ProductFormComponent implements OnInit, OnDestroy {
   }
 
   onGoBack() {
-    this.router.navigate(['/catalog', { outlets: { reviews: null } }]);
+    this.router.navigate(['/catalog']);
   }
 
   onShowReview() {
@@ -47,7 +47,6 @@ export class ProductFormComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy() {
-    console.log('destroy');
     this.router.navigate([{ outlets: { reviews: null } }]);
   }
 

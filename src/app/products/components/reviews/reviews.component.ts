@@ -1,12 +1,9 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 
-// rxjs
 import { switchMap } from 'rxjs/operators';
 
 import { ProductsService } from './../../services/products.service';
-import { ProductModel } from './../../../shared/models';
-import { BehaviorSubject } from 'rxjs';
 
 @Component({
   selector: 'app-reviews',
@@ -18,8 +15,7 @@ export class ReviewsComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
-    private productsService: ProductsService,
-    private router: Router
+    private productsService: ProductsService
   ) { }
 
   ngOnInit() {
