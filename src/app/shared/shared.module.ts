@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { CartService, ProductsService } from './services';
 import { HighlightDirective, IncreaseTextDirective } from './../shared/directives';
 import { OrderByPipe } from './pipes/order-by.pipe';
 
@@ -12,10 +11,6 @@ import { OrderByPipe } from './pipes/order-by.pipe';
   ],
   imports: [
     CommonModule
-  ],
-  providers: [
-    CartService,
-    ProductsService
   ],
   exports: [
     HighlightDirective,

@@ -1,3 +1,42 @@
 .notAvailable {
     color: red;
 }
+
+:host {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 5px;
+}
+
+.product-button-container {
+    width: 100%;
+    margin: 10px 0;
+    display: flex;
+    justify-content: space-around;
+}
+
+.product-button {
+    width: 130px;
+    height: 30px;
+    background-color: #cac0b9;
+    border-radius: 5px;
+    font-size: 14px;
+    font-weight:bold;
+    line-height: 14px;
+    vertical-align: center;
+    border: none;
+    box-shadow: 0 0 1px 0 black;
+}
+
+.product-button:hover {
+    background-color: #9a9692;;
+    cursor: pointer;
+}
+
+.product-button:disabled {
+    background-color: grey;
+    color: white;
+    cursor: not-allowed;
+}

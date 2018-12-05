@@ -1,0 +1,14 @@
+<div class="product-form-container">
+  <div><strong>{{product.name}}</strong></div>
+  <div>Description: {{product.description}}</div>
+  <div>Price: {{product.price | currency}}</div>
+  <div>Category: {{product.category}}</div>
+  <div>Count: {{product.availableCount}}</div>
+  <div>isAvailable: {{product.isAvailable}}</div>
+  <div>Last modified: {{product.lastModified | date: 'fullDate'}}</div>
+  <div class="product-button-container">
+      <button class="product-button" (click)="onGoBack()">Back</button>
+      <button *ngIf="!reviewVisible" class="product-button" (click)="onShowReview()">Show review</button>
+      <button *ngIf="reviewVisible" class="product-button" (click)="onHideReview()">Hide review</button>
+  </div>
+</div>

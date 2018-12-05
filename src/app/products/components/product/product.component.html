@@ -1,8 +1,12 @@
-<div appIncreaseText="32px" [ngClass]="{ 'notAvailable': !product.isAvailable }"><strong>Name: {{product.name}}</strong></div>
+<div appIncreaseText="32px" [ngClass]="{ 'notAvailable': !product.isAvailable }"><strong>{{product.name}}</strong></div>
 <div>Description: {{product.description}}</div>
 <div>Price: {{product.price | currency}}</div>
 <div>Category: {{product.category}}</div>
 <div [ngClass]="{ 'notAvailable': !product.isAvailable }">Count: {{product.availableCount}}</div>
 <div>isAvailable: {{product.isAvailable}}</div>
 <div>Last modified: {{product.lastModified | date: 'fullDate'}}</div>
-<button [disabled]="!product.isAvailable" (click)="onBuy(product)">Add to Cart</button>
+<div class="product-button-container">
+    <button class="product-button" (click)="onModified(product.id)">Show more</button>
+    <button class="product-button" [disabled]="!product.isAvailable" (click)="onBuy(product)">Add to Cart</button>
+</div>
+

@@ -1,0 +1,40 @@
+:host {
+   display: flex;
+   justify-content: center;
+}
+
+.product-form-container {
+    width: 500px;
+    box-shadow: 0 0 10px black;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 5px;
+}
+
+.product-button-container {
+    width: 100%;
+    margin-top:10px;
+    display: flex;
+    justify-content: space-around;
+}
+
+.product-button {
+    width: 140px;
+    height: 30px;
+    background-color: #cac0b9;
+    border-radius: 5px;
+    font-size: 14px;
+    font-weight:bold;
+    line-height: 14px;
+    vertical-align: center;
+    border: none;
+    box-shadow: 0 0 1px 0 black;
+}
+
+.product-button:hover {
+    background-color: #9a9692;
+    cursor: pointer;
+}

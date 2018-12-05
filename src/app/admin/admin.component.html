@@ -1,0 +1,21 @@
+<section class="admin-container">
+  <aside class="admin-nav">
+    <h3 class="admin-title">Admin</h3>
+    <nav>
+      <ul>
+        <li class="admin-nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
+          <a routerLink="./">Dashboard</a>
+        </li>
+        <li class="admin-nav-item" routerLinkActive="active">
+          <a routerLink="./products">Manage Products</a>
+        </li>
+        <li class="admin-nav-item" routerLinkActive="active">
+          <a routerLink="./something-cool">Something Cool</a>
+        </li>
+      </ul>
+    </nav>
+  </aside>
+  <div class="admin-content">
+    <router-outlet></router-outlet>
+  </div>
+</section>

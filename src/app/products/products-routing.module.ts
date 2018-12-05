@@ -1,14 +1,23 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-import { ProductComponent, ProductListComponent } from './components';
+import { ProductFormComponent, ProductListComponent } from './components';
+import { ReviewsComponent } from './components';
 
 const routes: Routes = [
     {
-        path: 'home',
+        path: 'catalog',
         component: ProductListComponent
+    },
+    {
+        path: 'reviews/:productId',
+        component: ReviewsComponent,
+        outlet: 'reviews'
+    },
+    {
+        path: 'products/:productId',
+        component: ProductFormComponent
     }
-
 ];
 
 @NgModule({

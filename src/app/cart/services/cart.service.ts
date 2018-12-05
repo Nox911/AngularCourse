@@ -1,10 +1,15 @@
 import { Injectable } from '@angular/core';
 import { ProductModel } from '../../shared/models/product.model';
+import { CartModule } from './../cart.module';
+import { BehaviorSubject } from 'rxjs';
 
-@Injectable()
+@Injectable({
+  providedIn: 'root'
+})
 export class CartService {
   cartList: ProductModel[] = [];
-  totalCount = 0;
+  localTotalCount = 0;
+  totalCount = new BehaviorSubject(0);
 
   addToCart(product: ProductModel): void {
     if (product.cartCount) {
@@ -13,7 +18,8 @@ export class CartService {
       this.cartList.push(product);
       product.cartCount++;
     }
-    this.totalCount++;
+    this.localTotalCount++;
+    this.totalCount.next(this.localTotalCount);
   }
 
   getCartList(): ProductModel[] {
@@ -29,7 +35,8 @@ export class CartService {
       if (item['id'] !== productId) {
         return true;
       } else {
-        this.totalCount = this.totalCount - item['cartCount'];
+        this.localTotalCount = this.localTotalCount - item['cartCount'];
+        this.totalCount.next(this.localTotalCount);
         return false;
       }
     });
@@ -37,6 +44,7 @@ export class CartService {
 
   clearCart() {
     this.cartList = [];
-    this.totalCount = 0;
+    this.localTotalCount = 0;
+    this.totalCount.next(this.localTotalCount);
   }
 }

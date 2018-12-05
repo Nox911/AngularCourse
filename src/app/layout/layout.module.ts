@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { AboutComponent, PathNotFoundComponent } from './';
+import { AboutComponent, PathNotFoundComponent, LoginComponent } from './';
 
 @NgModule({
   imports: [
@@ -9,7 +9,8 @@ import { AboutComponent, PathNotFoundComponent } from './';
   ],
   declarations: [
     AboutComponent,
-    PathNotFoundComponent
+    PathNotFoundComponent,
+    LoginComponent
   ]
 })
 export class LayoutModule { }

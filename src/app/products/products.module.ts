@@ -1,9 +1,10 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { ProductComponent, ProductListComponent } from './components';
+import { ProductComponent, ProductListComponent, ProductFormComponent } from './components';
 import { SharedModule } from './../shared/shared.module';
 import { ProductsRoutingModule } from './products-routing.module';
+import { ReviewsComponent } from './components/reviews/reviews.component';
 
 @NgModule({
   imports: [
@@ -14,6 +15,8 @@ import { ProductsRoutingModule } from './products-routing.module';
   declarations: [
     ProductComponent,
     ProductListComponent,
+    ProductFormComponent,
+    ReviewsComponent
   ],
   exports: [
     ProductListComponent

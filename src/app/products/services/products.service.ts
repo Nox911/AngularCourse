@@ -1,7 +1,9 @@
 import { Injectable } from '@angular/core';
 import { ProductModel, Category } from '../../shared/models/product.model';
 
-@Injectable()
+@Injectable({
+  providedIn: 'root'
+})
 export class ProductsService {
   productList: ProductModel[] = [
     {
@@ -13,7 +15,8 @@ export class ProductsService {
       availableCount: 3,
       cartCount: 0,
       id: '1',
-      lastModified: Date.now() - 23234234324
+      lastModified: Date.now() - 23234234324,
+      review: 'Good book!'
     },
     {
       name: 'New wave',
@@ -24,7 +27,8 @@ export class ProductsService {
       availableCount: 2,
       cartCount: 0,
       id: '2',
-      lastModified: Date.now() - 32131213133
+      lastModified: Date.now() - 32131213133,
+      review: 'I like this book'
     },
     {
       name: 'Around the world. Part 2',
@@ -34,7 +38,8 @@ export class ProductsService {
       availableCount: 5,
       cartCount: 0,
       id: '3',
-      lastModified: Date.now() - 2131323423423
+      lastModified: Date.now() - 2131323423423,
+      review: 'Awesome book!'
     }
   ];
 
@@ -75,5 +80,9 @@ export class ProductsService {
 
       return item;
     });
+  }
+
+  getProduct(productId) {
+    return this.productList.filter(product => product.id === productId);
   }
 }

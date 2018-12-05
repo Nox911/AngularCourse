@@ -1,0 +1,12 @@
+.app-product-list {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: nowrap;
+}
+
+.app-product-item {
+    width: 25%;
+    box-shadow: 0 0 10px 0 black;
+    margin: 10px 0;
+    border-radius: 5px;
+}
