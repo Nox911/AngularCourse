@@ -1,29 +1,15 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { CartService, ProductsService } from './services';
-import { ContactUsComponent } from './components/contact-us/contact-us.component';
 import { HighlightDirective, IncreaseTextDirective } from './../shared/directives';
 import { OrderByPipe } from './pipes/order-by.pipe';
 
+const declarationsArray = [ HighlightDirective, IncreaseTextDirective, OrderByPipe ];
+
 @NgModule({
-  declarations: [
-    HighlightDirective,
-    IncreaseTextDirective,
-    ContactUsComponent,
-    OrderByPipe
-  ],
+  declarations: [declarationsArray],
   imports: [
     CommonModule
   ],
-  providers: [
-    CartService,
-    ProductsService
-  ],
-  exports: [
-    HighlightDirective,
-    ContactUsComponent,
-    IncreaseTextDirective,
-    OrderByPipe
-  ]
+  exports: [declarationsArray]
 })
 export class SharedModule { }

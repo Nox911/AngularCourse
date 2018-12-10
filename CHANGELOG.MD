@@ -56,3 +56,15 @@
 # Information
 * Update: Refactoring of Cart possibilities and improvement of visual appearance will coming with routing.
 
+# Task5
+
+### Features
+* Add routing
+* Add Admin Page
+* Add Login Page
+* Add product form
+* Add Show Review button with additional router-outlet
+* Improve UI
+* Add Lazy loading for Admin Page(Can load guard)
+* Add security for Admin page (Can activate guard)
+* Add count of item in the Cart on the nav menu(Cart)

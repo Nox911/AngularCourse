@@ -12,7 +12,7 @@ export class ConfigOptionsService {
   };
 
   setConfigOptions(config: AppConfigModel): void {
-    this.appConfig = config;
+    this.appConfig = {...config};
   }
 
   getConfigOption(): AppConfigModel {

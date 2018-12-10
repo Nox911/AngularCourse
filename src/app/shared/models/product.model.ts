@@ -14,5 +14,6 @@ export interface ProductModel {
     cartCount?: number;
     id: string;
     lastModified: number;
+    review: string;
 }
 

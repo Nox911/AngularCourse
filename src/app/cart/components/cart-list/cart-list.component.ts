@@ -1,22 +1,27 @@
-import { Component, DoCheck, ViewChild } from '@angular/core';
-import { CartService, ProductsService } from '../../../shared/services';
+import { Component, DoCheck, OnInit } from '@angular/core';
+import { CartService } from '../../../cart/services';
+import { ProductsService} from './../../../products/services/products.service';
 import { ProductModel } from '../../../shared/models/product.model';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-cart-list',
   templateUrl: './cart-list.component.html',
   styleUrls: ['./cart-list.component.css'],
 })
-export class CartListComponent implements DoCheck {
+export class CartListComponent implements DoCheck, OnInit {
   productCartList: ProductModel[];
-  totalCartCount;
+  totalCartCount: Observable<number>;
   orderType = 'name';
 
   constructor(private cartService: CartService, private productService: ProductsService) { }
 
+  ngOnInit() {
+    this.totalCartCount = this.cartService.totalCount;
+  }
+
   ngDoCheck() {
     this.productCartList = this.cartService.getCartList();
-    this.totalCartCount = this.cartService.totalCount;
   }
 
   onRemoveItem(productId: string) {

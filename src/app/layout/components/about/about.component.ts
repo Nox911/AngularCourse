@@ -3,11 +3,11 @@ import { ConstantsService, StringGenerator10 } from '../../../core/core.module';
 import { ConfigOptionsService } from '../../../core/services';
 
 @Component({
-  selector: 'app-contact-us',
-  templateUrl: './contact-us.component.html',
-  styleUrls: ['./contact-us.component.css']
+  selector: 'app-about',
+  templateUrl: './about.component.html',
+  styleUrls: ['./about.component.css']
 })
-export class ContactUsComponent implements OnInit {
+export class AboutComponent implements OnInit {
   aboutApp;
   userId;
   user;
