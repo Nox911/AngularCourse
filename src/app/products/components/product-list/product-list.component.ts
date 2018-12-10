@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { CartService } from '../../../cart/services';
 import { ProductModel } from '../../../shared/models/product.model';
 import { ProductsService } from './../../services/products.service';
+import { Observable } from 'rxjs';
+import { switchMap } from 'rxjs/operators';
 
 @Component({
   selector: 'app-product-list',
@@ -9,7 +11,7 @@ import { ProductsService } from './../../services/products.service';
   styleUrls: ['./product-list.component.css']
 })
 export class ProductListComponent implements OnInit {
-  productList: Promise<ProductModel[]>;
+  productList: Observable<ProductModel[]>;
 
   constructor(
     private productsService: ProductsService,
@@ -21,7 +23,13 @@ export class ProductListComponent implements OnInit {
   }
 
   onBuy(product: ProductModel) {
-    this.productList = this.productsService.updateProductsCount(product.id);
-    this.cartService.addToCart(product);
+    console.log('close');
+    this.productList = this.productList
+      .pipe(
+        switchMap(() => {
+          return this.productsService.updateProductsCount(product);
+        })
+      );
+    // this.cartService.addToCart(product);
   }
 }

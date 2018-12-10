@@ -1,63 +1,53 @@
 import { Injectable } from '@angular/core';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+
 import { ProductModel, Category } from '../../shared/models/product.model';
+import { Observable } from 'rxjs';
+import { map, tap } from 'rxjs/operators';
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class ProductsService {
-  productList: ProductModel[] = [
-    {
-      name: 'Tom and Jerry',
-      description: 'Book about pets',
-      price: 4,
-      category: Category.Fantasy,
-      isAvailable: true,
-      availableCount: 3,
-      cartCount: 0,
-      id: '1',
-      lastModified: Date.now() - 23234234324,
-      review: 'Good book!'
-    },
-    {
-      name: 'New wave',
-      description: 'Book about adventure',
-      price: 5,
-      category: Category.Detective,
-      isAvailable: true,
-      availableCount: 2,
-      cartCount: 0,
-      id: '2',
-      lastModified: Date.now() - 32131213133,
-      review: 'I like this book'
-    },
-    {
-      name: 'Around the world. Part 2',
-      price: 7,
-      category: Category.Adventure,
-      isAvailable: true,
-      availableCount: 5,
-      cartCount: 0,
-      id: '3',
-      lastModified: Date.now() - 2131323423423,
-      review: 'Awesome book!'
-    }
-  ];
+  private baseUrl = 'http://localhost:3000/books';
+  productList: ProductModel[];
 
-  getProducts(): Promise<ProductModel[]> {
-    return Promise.resolve(this.productList);
+  constructor (private http: HttpClient) { }
+
+  getProducts(): Observable<ProductModel[]> {
+    return this.http
+    .get<ProductModel[]>(this.baseUrl)
+    .pipe(
+      map((books: ProductModel[]) => this.parseData(books)),
+      tap((books) => this.productList = books));
   }
 
-  updateProductsCount(productId: string): Promise<ProductModel[]> {
-    return Promise.resolve(
-      this.productList.map(item => {
-        if (item.id === productId) {
-          item.availableCount--;
-        }
-        item.isAvailable = !!item.availableCount;
+  updateProductsCount(product: ProductModel): Observable<ProductModel[]> {
+    const url = `${this.baseUrl}/${product.id}`;
+    const body = '';
+    const options = {
+      // headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
+    };
 
-        return item;
-      })
+    return this.http
+    .post<ProductModel[]>(url, body, options)
+    .pipe(
+      // tap((books) => console.log(books))
     );
+      // map((books: ProductModel[]) => this.parseData(books)),
+      // tap((books) => this.productList = books));
+
+    // return Promise.resolve(
+    //   this.productList.map(item => {
+    //     if (item.id === productId) {
+    //       item.availableCount--;
+    //     }
+    //     item.isAvailable = !!item.availableCount;
+
+    //     return item;
+    //   })
+    // );
   }
 
   restoreProductCount(productId: string) {
@@ -85,4 +75,19 @@ export class ProductsService {
   getProduct(productId) {
     return this.productList.filter(product => product.id === productId);
   }
+
+  private parseData(books: ProductModel[]) {
+    return books.map((book: ProductModel) => {
+      const data = {
+        price: +book.price,
+        isAvailable: !!book.isAvailable,
+        lastModified: Date.now() - book.lastModified,
+        cartCount: +book.cartCount,
+        availableCount: +book.availableCount,
+        category: book.category
+      };
+      return {...book, ...data};
+    });
+  }
+
 }

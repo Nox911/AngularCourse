@@ -1,0 +1,39 @@
+{
+    "books": [
+        {
+          "name": "Tom and Jerry",
+          "description": "Book about pets",
+          "price": "4",
+          "category": "Category.Fantasy",
+          "isAvailable": "true",
+          "availableCount": "3",
+          "cartCount": "0",
+          "id": "1",
+          "lastModified": "23234234324",
+          "review": "Good book!"
+        },
+        {
+          "name": "New wave",
+          "description": "Book about adventure",
+          "price": "5",
+          "category": "Category.Detective",
+          "isAvailable": "true",
+          "availableCount": "2",
+          "cartCount": "0",
+          "id": "2",
+          "lastModified": "32131213133",
+          "review": "I like this book"
+        },
+        {
+          "name": "Around the world. Part 2",
+          "price": "7",
+          "category": "Category.Adventure",
+          "isAvailable": "true",
+          "availableCount": "5",
+          "cartCount": "0",
+          "id": "3",
+          "lastModified": "2131323423423",
+          "review": "Awesome book!"
+        }
+      ]
+}
